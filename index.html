@@ -34,35 +34,35 @@
 		  	}
 		  });
 
-      $('takeoff').bind('click', function() {
+      $('#takeoff').bind('click', function() {
       	console.log('test');
           socket.emit('droneCommand', {functionName: "takeoff"})
       })
-      $('land').bind('click', function() {
+      $('#land').bind('click', function() {
           console.log("land");
           socket.emit('droneCommand', {functionName: "land"})
       })
-      $('forward').bind('click', function() {
+      $('#forward').bind('click', function() {
           console.log("fwd");
           socket.emit('droneCommand', {functionName: "forward"})
       })
-      $('back').bind('click', function() {
+      $('#back').bind('click', function() {
           console.log("back");
           socket.emit('droneCommand', {functionName: "back"})
       })
-      $('left').bind('click', function() {
+      $('#left').bind('click', function() {
           console.log("left");
           socket.emit('droneCommand', {functionName: "left"})
       })
-      $('right').bind('click', function() {
+      $('#right').bind('click', function() {
           console.log("right");
           socket.emit('droneCommand', {functionName: "right"})
       })
-      $('up').bind('click', function() {
+      $('#up').bind('click', function() {
           console.log("up");
           socket.emit('droneCommand', {functionName: "up"})
       })
-      $('down').bind('click', function() {
+      $('#down').bind('click', function() {
           console.log("down");
           socket.emit('droneCommand', {functionName: "down"})
       })
