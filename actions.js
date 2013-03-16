@@ -2,6 +2,7 @@ var arDrone = require('ar-drone');
 //var http    = require('http');
 
 var client = arDrone.createClient();
+
 var flying = false;
 var Actions = function() {};
 
@@ -9,6 +10,7 @@ Actions.prototype.toggleFlying = function()  {
 	if (flying) client.land();
 	else client.takeoff();
 }
+
 /* These can use native
 Actions.prototype.up = function(speed)  {
 	client.up(speed || 0.5);
