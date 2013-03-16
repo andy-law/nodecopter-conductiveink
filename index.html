@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Nodecopter</title>
+		<link rel="stylesheet" href="style.css" />	
+	</head>
+	<body>
+		<ul class="buttons">
+			<li>Takeoff</li>
+			<li>Land</li>
+			<li>Forward</li>
+			<li>Back</li>
+			<li>Left</li>
+			<li>Right</li>
+			<li>Up</li>
+			<li>Down</li>
+		</ul>
+
+		<video id="stream"></video>
+
+		<div id="info">
+
+		</div>
+
+
+		<script src="/socket.io/socket.io.js"></script>
+		<script>
+		  var socket = io.connect('http://localhost:8080');
+		  socket.on('drone_data', function (data) {
+		    document.querySelector('#info').innerHTML = data;
+		  });
+		</script>
+	</body>
+</html>
