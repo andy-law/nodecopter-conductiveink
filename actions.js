@@ -1,23 +1,25 @@
-var arDrone = require('..');
-var http    = require('http');
+var arDrone = require('ar-drone');
+//var http    = require('http');
 
-var actions = {
-	var flying = false;
+var client = arDrone.createClient();
+var flying = false;
+var Actions = function() {};
 
-	function takeoff()  {
-		arDrone.takeoff();
-		flying = true;
-	}
+Actions.prototype.takeoff = function()  {
+	client.takeoff();
+	flying = true;
+	console.log('flying');
+}
 
-	function land()  {
-		arDrone.land();
-		flying = false;
-	}
+Actions.prototype.land = function()  {
+	client.land();
+	flying = false;
+	console.log('landed');
+}
 
-	function toggleFlying()  {
-		if (flying) land();
-		else takeoff();
-	}
-};
+Actions.prototype.toggleFlying = function()  {
+	if (flying) land();
+	else this.takeoff();
+}
 
-exports.actions = actions;
+module.exports = Actions;

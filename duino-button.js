@@ -8,30 +8,10 @@ var button = new arduino.Button({
   pin: 4
 });
 
-var arDrone = require('ar-drone');
-var client = arDrone.createClient();
-//var http    = require('http');
 
-var flying = false;
-
-function takeoff()  {
-	client.takeoff();
-	flying = true;
-	console.log('flying');
-}
-
-function land()  {
-	client.land();
-	flying = false;
-	console.log('landed');
-}
-
-function toggleFlying()  {
-	if (flying) land();
-	else takeoff();
-}
-
+var Actions = require('./actions');
+var controller = new Actions();
 
 button.on('down', function(){
-	toggleFlying();
+	controller.toggleFlying();
 });
