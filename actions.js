@@ -82,6 +82,18 @@ Actions.prototype.up = function() {
     client.up(0.5).after(500, function() { this.stop(); });
 }
 
+Actions.prototype.down = function() {
+    client.down(0.5).after(500, function() { this.stop(); });
+}
+
+Actions.prototype.right = function() {
+    client.right(0.5).after(500, function() { this.stop(); });
+}
+
+Actions.prototype.left = function() {
+    client.left(0.5).after(500, function() { this.stop(); });
+}
+
 Actions.prototype.stop = function() {
     client.stop();
 }
