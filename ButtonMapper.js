@@ -1,19 +1,17 @@
 
-function ButtonMapper() {
+var ButtonMapper = function() {}
 
-    this.commands = [];
+ButtonMapper.prototype.commands = [];
 
-    this.buttonsCurrentlyPressed = [];
+ButtonMapper.prototype.buttonsCurrentlyPressed = [];
 
-    this.currentCommand;
-
-}
+ButtonMapper.prototype.currentCommand;
 
 
 ButtonMapper.prototype.addCommand = function(data) {
 
     var command = {startCommand: data.startCommand, endCommand: data.endCommand, combination: []};
-    for(var i=0; i<buttonIds.length; i++) {
+    for(var i=0; i<data.pins.length; i++) {
         command.combination.push([
             data.pins[i]
         ]);
@@ -87,5 +85,7 @@ ButtonMapper.prototype.buttonReleased = function(buttonId) {
 ButtonMapper.prototype.arraySort = function(a, b) {
     return (a - b);
 }
+
+module.exports = ButtonMapper;
 
 

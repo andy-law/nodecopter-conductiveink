@@ -14,3 +14,5 @@ ButtonInput.prototype.onPressed = function() {
 ButtonInput.prototype.onRelease = function() {
     this.isPressed = false;
 }
+
+module.exports = ButtonInput;

@@ -11,6 +11,10 @@ Actions.prototype.toggleFlying = function()  {
 	else client.takeoff();
 }
 
+Actions.prototype.rotateLeft = function() {
+    client.rotateLeft(90);
+}
+
 /* These can use native
 Actions.prototype.up = function(speed)  {
 	client.up(speed || 0.5);

@@ -10,19 +10,16 @@ var data = [
         endCommand: null
     },
     {
-        pins: [5],
-        startCommand: "flyUp",
-        endCommand: "stop"
-    },
-    {
-        pins: [6],
-        startCommand: "flyDown",
+        pins: [10],
+        startCommand: "rotateLeft",
         endCommand: "stop"
     }
 ];
 
 var buttons = [];
 
+var ButtonMapper = require("./buttonmapper");
+var ButtonInput = require('./buttoninput');
 var btnMapper = new ButtonMapper();
 for( var i=0; i<data.length; i++ ) {
     btnMapper.addCommand(data[i]);
@@ -30,10 +27,9 @@ for( var i=0; i<data.length; i++ ) {
 
 var button = new arduino.Button({
     board: board,
-    pin: 4
+    pin: 4,
+    input: new ButtonInput(4)
 });
-
-button.prototype.input = new ButtonInput(4);
 
 buttons.push(button);
 
