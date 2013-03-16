@@ -18,16 +18,20 @@
 
 		<video id="stream"></video>
 
-		<div id="info">
-
-		</div>
+		<ul id="info">
+		</ul>
 
 
 		<script src="/socket.io/socket.io.js"></script>
 		<script>
+			var log;
 		  var socket = io.connect('http://localhost:8080');
 		  socket.on('drone_data', function (data) {
-		    document.querySelector('#info').innerHTML = data;
+		  	document.querySelector('#info').innerHTML = "";
+		  	log = data;
+		  	for (var state in data.droneState)  {
+		    	document.querySelector('#info').innerHTML += "<li>" + state + ": " + data.droneState[state] + "</li>";
+		  	}
 		  });
 		</script>
 	</body>
