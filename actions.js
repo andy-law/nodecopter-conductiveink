@@ -64,6 +64,14 @@ Actions.prototype.toggleFlying = function()  {
     }
 }
 
+Actions.prototype.takeoff = function() {
+    client.takeoff();
+}
+
+Actions.prototype.takeoff = function() {
+    client.land();
+}
+
 Actions.prototype.getClient = function() {
     return client;
 }
@@ -79,19 +87,32 @@ Actions.prototype.rotateRight = function(speed) {
 }
 
 Actions.prototype.up = function() {
-    client.up(0.5).after(500, function() { this.stop(); });
+    console.log("UPPPPP");
+    client.up(0.5);
+    setTimeout(function() {
+        client.stop();
+    }, 500);
 }
 
 Actions.prototype.down = function() {
-    client.down(0.5).after(500, function() { this.stop(); });
+    client.down(0.5);
+    setTimeout(function() {
+        client.stop();
+    }, 500);
 }
 
 Actions.prototype.right = function() {
-    client.right(0.5).after(500, function() { this.stop(); });
+    client.right(0.5);
+    setTimeout(function() {
+        client.stop();
+    }, 500);
 }
 
 Actions.prototype.left = function() {
-    client.left(0.5).after(500, function() { this.stop(); });
+    client.left(0.5);
+    setTimeout(function() {
+        client.stop();
+    }, 500);
 }
 
 Actions.prototype.stop = function() {

@@ -131,7 +131,7 @@ _socket = io.sockets.on('connection', function (socket) {
     });
 
     socket.on('droneCommand', function(data) {
-        console.log('data');
+        console.log(data);
         controller[data.functionName]();
     });
 });
