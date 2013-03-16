@@ -13,7 +13,14 @@ var buttons = [
     },
     {
         pin: 10,
-        startCommand: "clockwise",
+        startCommand: "rotateLeft",
+        startParams: 0.5,
+        endCommand: "stop",
+        endParams: null
+    },
+    {
+        pin: 11,
+        startCommand: "rotateRight",
         startParams: 0.5,
         endCommand: "stop",
         endParams: null
@@ -115,5 +122,9 @@ _socket = io.sockets.on('connection', function (socket) {
 
     client.on('navdata', function(data){
         socket.emit('drone_data', data);
+    });
+
+    socket.on('droneCommand', function(data) {
+        controller[data.functionName]();
     });
 });

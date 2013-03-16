@@ -1,7 +1,7 @@
 //var arduino = require('duino'),
 //    board = new arduino.Board();
 
-var button = new arduino.Button({
+/*var button = new arduino.Button({
   board: board,
   pin: 4
 });
@@ -40,7 +40,7 @@ btn2.on('down', function(){
 btn2.on('up', function(){
   controller.stopRotation();
   console.log('stop rot');
-});
+}); */
 
 
 var arDrone = require('ar-drone');
@@ -69,8 +69,9 @@ Actions.prototype.rotateLeft = function(speed) {
     client.clockwise(speed);
 }
 
-Actions.prototype.rotateRight = function() {
-    client.counterClockwise(.5);
+Actions.prototype.rotateRight = function(speed) {
+    speed = speed || 0.5
+    client.counterClockwise(speed);
 }
 
 Actions.prototype.stop = function() {
