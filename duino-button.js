@@ -28,7 +28,6 @@ for( var i=0; i<data.length; i++ ) {
     btnMapper.addCommand(data[i]);
 }
 
-
 var button = new arduino.Button({
     board: board,
     pin: 4
@@ -42,14 +41,14 @@ buttons.push(button);
 var Actions = require('./actions');
 var controller = new Actions();
 
-for( var i=0; i<buttons.length; i++ ) {
+for( i=0; i<buttons.length; i++ ) {
     var button = buttons[i];
 
     button.on('down', function(){
         this.input.onPressed();
         var commands = btnMapper.buttonPressed(this.input.id);
-        console.log(command);
         for( var i=0; i<commands.length; i++ ) {
+            console.log(commands[i]);
             controller[commands[i]]();
         }
         //toggleFlying();
@@ -59,6 +58,7 @@ for( var i=0; i<buttons.length; i++ ) {
         this.input.onRelease();
         var commands = btnMapper.buttonRelease(this.input.id);
         for( var i=0; i<commands.length; i++ ) {
+            console.log(commands[i]);
             controller[commands[i]]();
         }
     });
