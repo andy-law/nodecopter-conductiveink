@@ -78,6 +78,10 @@ Actions.prototype.rotateRight = function(speed) {
     client.counterClockwise(speed);
 }
 
+Actions.prototype.up = function() {
+    client.up(0.5).after(500, function() { this.stop(); });
+}
+
 Actions.prototype.stop = function() {
     client.stop();
 }

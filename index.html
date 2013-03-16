@@ -12,7 +12,7 @@
 			<li>Back</li>
 			<li>Left</li>
 			<li>Right</li>
-			<li>Up</li>
+			<li id="up">Up</li>
 			<li>Down</li>
 		</ul>
 
@@ -33,7 +33,9 @@
 		  	}
 		  });
 
-
+            document.getElementById('up').bind('click', function() {
+                socket.emit('droneCommand', {functionName: "up"})
+            })
 		</script>
 	</body>
 </html>
