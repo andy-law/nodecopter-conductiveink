@@ -54,6 +54,7 @@
           socket.emit('droneCommand', {functionName: "right"})
       })
       $('up').bind('click', function() {
+          console.log("up");
           socket.emit('droneCommand', {functionName: "up"})
       })
       $('down').bind('click', function() {
