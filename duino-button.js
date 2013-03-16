@@ -64,7 +64,9 @@ function getButtonParams(pin) {
 
 var http = require('http'),
     server = http.createServer(handler),
-    fs = require('fs');
+    fs = require('fs'),
+    request = require("request"),
+    path = require('path');
 
 server.listen(8080);
 
