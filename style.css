@@ -53,16 +53,22 @@ table {
 
 * { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
 
-.buttons {
+.buttons,
+#info {
 	list-style: none;
 }
 
-.buttons li  {
+.buttons li,
+#info li  {
 	background-color: #2b2826;
 	border: 1px solid #1b1918;
 	color: #e0dddc;
 	text-decoration: none;
 	padding: 15px;
-	width: 20%;
-	max-width: 150px;
+	width: 150px;
+}
+
+#info li  {
+	padding: 5px 15px;
+	width: 400px;
 }
