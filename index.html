@@ -7,14 +7,14 @@
 	</head>
 	<body>
 		<ul class="buttons">
-			<li>Takeoff</li>
-			<li>Land</li>
-			<li>Forward</li>
-			<li>Back</li>
-			<li>Left</li>
-			<li>Right</li>
-			<li><a href="#" id="up">Up</li>
-			<li>Down</li>
+			<li id="takeoff">Takeoff</li>
+			<li id="land">Land</li>
+			<li id="forward">Forward</li>
+			<li id="back">Back</li>
+			<li id="left">Left</li>
+			<li id="right">Right</li>
+			<li id="up">Up</li>
+			<li id="down">Down</li>
 		</ul>
 
 		<div id="stream"></div>
@@ -34,9 +34,31 @@
 		  	}
 		  });
 
-            $('#up').bind('click', function() {
-                socket.emit('droneCommand', {functionName: "up"})
-            })
+      document.getElementById('takeoff').bind('click', function() {
+      	console.log('test');
+          socket.emit('droneCommand', {functionName: "takeoff"})
+      })
+      document.getElementById('land').bind('click', function() {
+          socket.emit('droneCommand', {functionName: "land"})
+      })
+      document.getElementById('forward').bind('click', function() {
+          socket.emit('droneCommand', {functionName: "forward"})
+      })
+      document.getElementById('back').bind('click', function() {
+          socket.emit('droneCommand', {functionName: "back"})
+      })
+      document.getElementById('left').bind('click', function() {
+          socket.emit('droneCommand', {functionName: "left"})
+      })
+      document.getElementById('right').bind('click', function() {
+          socket.emit('droneCommand', {functionName: "right"})
+      })
+      document.getElementById('up').bind('click', function() {
+          socket.emit('droneCommand', {functionName: "up"})
+      })
+      document.getElementById('down').bind('click', function() {
+          socket.emit('droneCommand', {functionName: "down"})
+      })
 		</script>
 	</body>
 </html>

@@ -63,6 +63,7 @@ table {
 	background-color: #2b2826;
 	border: 1px solid #1b1918;
 	color: #e0dddc;
+	cursor: pointer;
 	text-decoration: none;
 	padding: 15px;
 	width: 150px;
