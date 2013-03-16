@@ -48,15 +48,19 @@ var http    = require('http');
 
 var client = arDrone.createClient();
 
-var flying = true;
+var flying = false;
 var Actions = function() {};
 var controller = new Actions();
 
 Actions.prototype.toggleFlying = function()  {
-	if (flying) {
+	console.log("toggle flying");
+    if (flying) {
         client.land();
+        flying = false;
     } else {
+        console.log("TAKE OFF!!!");
         client.takeoff();
+        flying = true;
     }
 }
 

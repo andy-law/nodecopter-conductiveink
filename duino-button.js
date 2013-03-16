@@ -37,14 +37,17 @@ for( i=0; i<buttons.length; i++ ) {
         board: board,
         pin: buttons[i].pin
     });
-
+    console.log("adding button " + i);
     button.on('down', function(){
         var params = getButtonParams(this.pin);
         if( params == null ) {
             console.log("unable to find pin");
             return;
         }
+        console.log(this.pin);
+        console.log(params);
         var endArgs = params.startParams == null ? undefined : params.startParams
+        var func = controller[params.startCommand];
         controller[params.startCommand]( endArgs );
     });
 
@@ -56,13 +59,16 @@ for( i=0; i<buttons.length; i++ ) {
         }
         if(params.endCommand == null ) return;
         var endArgs = params.endParams == null ? undefined : params.endParams;
+        console.log("end command: " + params.endCommand);
         controller[params.endCommand]( endArgs );
     });
 }
 
 function getButtonParams(pin) {
     for( var i=0; i<buttons.length; i++ ) {
-        if( buttons[i].pin == pin ) return pin;
+        console.log("Button: " + buttons[i].pin);
+        console.log("pin: " + pin);
+        if( buttons[i].pin == pin ) return buttons[i];
     }
     return null;
 }
