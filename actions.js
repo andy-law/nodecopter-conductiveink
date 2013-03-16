@@ -68,7 +68,7 @@ Actions.prototype.takeoff = function() {
     client.takeoff();
 }
 
-Actions.prototype.takeoff = function() {
+Actions.prototype.land = function() {
     client.land();
 }
 
