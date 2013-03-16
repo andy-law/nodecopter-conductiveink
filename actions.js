@@ -1,7 +1,7 @@
 //var arduino = require('duino'),
 //    board = new arduino.Board();
 
-/*var button = new arduino.Button({
+var button = new arduino.Button({
   board: board,
   pin: 4
 });
@@ -11,8 +11,13 @@ var btn = new arduino.Button({
   pin: 10
 });
 
+var btn2 = new arduino.Button({
+  board: board,
+  pin: 11
+});
+
 button.on('down', function(){
-	flying= !flying;
+  flying= !flying;
   controller.toggleFlying();
   console.log('takeoff');
 });
@@ -25,11 +30,21 @@ btn.on('down', function(){
 btn.on('up', function(){
   controller.stopRotation();
   console.log('stop rot');
-});  */
+});
+
+btn2.on('down', function(){
+  controller.rotateRight();
+  console.log('rotate');
+});
+
+btn2.on('up', function(){
+  controller.stopRotation();
+  console.log('stop rot');
+});
 
 
 var arDrone = require('ar-drone');
-//var http    = require('http');
+var http    = require('http');
 
 var client = arDrone.createClient();
 
@@ -52,6 +67,10 @@ Actions.prototype.getClient = function() {
 Actions.prototype.rotateLeft = function(speed) {
     speed = speed || 0.5;
     client.clockwise(speed);
+}
+
+Actions.prototype.rotateRight = function() {
+    client.counterClockwise(.5);
 }
 
 Actions.prototype.stop = function() {
