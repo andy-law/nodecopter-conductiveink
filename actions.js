@@ -1,10 +1,41 @@
+var arduino = require('duino'),
+    board = new arduino.Board();
+
+var button = new arduino.Button({
+  board: board,
+  pin: 4
+});
+
+var btn = new arduino.Button({
+  board: board,
+  pin: 10
+});
+
+button.on('down', function(){
+	flying= !flying;
+  controller.toggleFlying();
+  console.log('takeoff');
+});
+
+btn.on('down', function(){
+  controller.rotateLeft();
+  console.log('rotate');
+});
+
+btn.on('up', function(){
+  controller.stopRotation();
+  console.log('stop rot');
+});
+
+
 var arDrone = require('ar-drone');
 //var http    = require('http');
 
 var client = arDrone.createClient();
 
-var flying = false;
+var flying = true;
 var Actions = function() {};
+var controller = new Actions();
 
 Actions.prototype.toggleFlying = function()  {
 	if (flying) client.land();
@@ -12,7 +43,11 @@ Actions.prototype.toggleFlying = function()  {
 }
 
 Actions.prototype.rotateLeft = function() {
-    client.rotateLeft(90);
+    client.clockwise(.5);
+}
+
+Actions.prototype.stopRotation = function() {
+    client.stop();
 }
 
 /* These can use native
