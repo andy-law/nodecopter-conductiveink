@@ -5,23 +5,11 @@ var client = arDrone.createClient();
 var flying = false;
 var Actions = function() {};
 
-Actions.prototype.takeoff = function()  {
-	client.takeoff();
-	flying = true;
-	console.log('flying');
-}
-
-Actions.prototype.land = function()  {
-	client.land();
-	flying = false;
-	console.log('landed');
-}
-
 Actions.prototype.toggleFlying = function()  {
-	if (flying) land();
-	else this.takeoff();
+	if (flying) client.land();
+	else client.takeoff();
 }
-
+/* These can use native
 Actions.prototype.up = function(speed)  {
 	client.up(speed || 0.5);
 }
@@ -44,6 +32,6 @@ Actions.prototype.front = function(speed)  {
 
 Actions.prototype.back = function(speed)  {
 	client.back(speed || 0.5);
-}
+} */
 
 module.exports = Actions;
