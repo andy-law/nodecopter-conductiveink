@@ -115,6 +115,20 @@ Actions.prototype.left = function() {
     }, 500);
 }
 
+Actions.prototype.forward = function() {
+    client.front(0.5);
+    setTimeout(function() {
+        client.stop();
+    }, 500);
+}
+
+Actions.prototype.back = function() {
+    client.back(0.5);
+    setTimeout(function() {
+        client.stop();
+    }, 500);
+}
+
 Actions.prototype.stop = function() {
     client.stop();
 }
